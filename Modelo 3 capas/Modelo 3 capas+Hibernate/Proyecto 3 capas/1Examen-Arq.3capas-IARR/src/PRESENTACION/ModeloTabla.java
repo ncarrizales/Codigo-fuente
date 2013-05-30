@@ -51,4 +51,8 @@ public class ModeloTabla extends AbstractTableModel{
         super.fireTableDataChanged();
     }
 
+    public void miCambio()
+    {
+        System.out.println("hola mundo");
+    }
 }
