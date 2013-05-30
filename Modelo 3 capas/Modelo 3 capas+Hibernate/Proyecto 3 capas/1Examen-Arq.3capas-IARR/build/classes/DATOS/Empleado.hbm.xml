@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ago-2011 23:17:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="DATOS.Empleado" table="empleado" schema="public">
+        <id name="codigo" type="string">
+            <column name="codigo" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="ci" type="int">
+            <column name="ci" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="fechaIngreso" type="date">
+            <column name="fecha_ingreso" length="13" not-null="true" />
+        </property>
+        <property name="cargo" type="string">
+            <column name="cargo" length="50" not-null="true" />
+        </property>
+        <set name="calificacions" inverse="true">
+            <key>
+                <column name="idempleado" length="10" />
+            </key>
+            <one-to-many class="DATOS.Calificacion" />
+        </set>
+        <set name="inscripcions" inverse="true">
+            <key>
+                <column name="idempleado" length="10" />
+            </key>
+            <one-to-many class="DATOS.Inscripcion" />
+        </set>
+        <set name="edicions" inverse="true">
+            <key>
+                <column name="idempleado" length="10" not-null="true" />
+            </key>
+            <one-to-many class="DATOS.Edicion" />
+        </set>
+    </class>
+</hibernate-mapping>

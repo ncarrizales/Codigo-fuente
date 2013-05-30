@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ago-2011 23:17:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="DATOS.Calificacion" table="calificacion" schema="public">
+        <composite-id name="id"  class= "DATOS.CalificacionId">
+            <key-property name="idempleado" type="string">
+                <column name="idempleado" length="10" />
+            </key-property>
+            <key-property name="idedicion" type="string">
+                <column name="idedicion" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="edicion" class="DATOS.Edicion" update="false" insert="false" fetch="select">
+            <column name="idedicion" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleado" class="DATOS.Empleado" update="false" insert="false"  fetch="select">
+            <column name="idempleado" length="10" not-null ="true" />
+        </many-to-one>
+        <property name="nota" type="int">
+            <column name="nota" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
