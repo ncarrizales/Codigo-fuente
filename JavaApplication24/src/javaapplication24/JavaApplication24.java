@@ -42,5 +42,11 @@ public class JavaApplication24 {
         
         System.out.println("a,b,c ¿es un par impar? = "+parImpar (23,24,5));
         //ffffffffffffffffffffffffffffffffffffffffffffff
+        //hola como estas
+    }
+    
+    public static boolean todosimpares (int a, int b, int c,int d)
+    {
+       return impar (a) && impar (b) && impar (c) && impar(d);
     }
 }
