@@ -40,7 +40,7 @@ public class JavaApplication24 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        System.out.println("a,b,c ¿es un par impar? = "+parImpar (23,24,5));
+        System.out.println("a,b,c ¿es un par impar? = "+todosimpares(23,24,5,21));
         //ffffffffffffffffffffffffffffffffffffffffffffff
         //hola como estas
     }
