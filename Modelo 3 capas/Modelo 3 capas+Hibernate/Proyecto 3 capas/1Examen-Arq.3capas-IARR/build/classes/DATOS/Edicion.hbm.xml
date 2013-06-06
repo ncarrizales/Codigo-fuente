@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ago-2011 23:17:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="DATOS.Edicion" table="edicion" schema="public">
+        <id name="codigo" type="string">
+            <column name="codigo" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="aula" class="DATOS.Aula" fetch="select">
+            <column name="idaula" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="curso" class="DATOS.Curso" fetch="select">
+            <column name="idcurso" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleado" class="DATOS.Empleado" fetch="select">
+            <column name="idempleado" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tema" class="DATOS.Tema" fetch="select">
+            <column name="idtema" length="10" not-null="true" />
+        </many-to-one>
+        <property name="fechaIni" type="date">
+            <column name="fecha_ini" length="13" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="13" />
+        </property>
+        <set name="inscripcions" inverse="true">
+            <key>
+                <column name="idedicion" length="10" />
+            </key>
+            <one-to-many class="DATOS.Inscripcion" />
+        </set>
+        <set name="horarios" inverse="true">
+            <key>
+                <column name="idedicion" length="10" />
+            </key>
+            <one-to-many class="DATOS.Horario" />
+        </set>
+        <set name="calificacions" inverse="true">
+            <key>
+                <column name="idedicion" length="10" />
+            </key>
+            <one-to-many class="DATOS.Calificacion" />
+        </set>
+    </class>
+</hibernate-mapping>

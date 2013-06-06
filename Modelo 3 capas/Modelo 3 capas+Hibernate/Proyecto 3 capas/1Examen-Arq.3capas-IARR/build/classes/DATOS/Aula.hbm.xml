@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ago-2011 23:17:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="DATOS.Aula" table="aula" schema="public">
+        <id name="idaula" type="string">
+            <column name="idaula" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="capacidad" type="int">
+            <column name="capacidad" not-null="true" />
+        </property>
+        <set name="edicions" inverse="true">
+            <key>
+                <column name="idaula" length="10" not-null="true" />
+            </key>
+            <one-to-many class="DATOS.Edicion" />
+        </set>
+    </class>
+</hibernate-mapping>

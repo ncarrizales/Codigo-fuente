@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ago-2011 23:17:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="DATOS.Inscripcion" table="inscripcion" schema="public">
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="edicion" class="DATOS.Edicion" fetch="select">
+            <column name="idedicion" length="10" />
+        </many-to-one>
+        <many-to-one name="empleado" class="DATOS.Empleado" fetch="select">
+            <column name="idempleado" length="10" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="50" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>
